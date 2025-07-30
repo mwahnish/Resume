@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wahnish_resume/timeline/section%20selection/timeline_section_selector.dart';
+import 'package:wahnish_resume/desktop/timeline/section%20selection/timeline_section_selector.dart';
 
 class Timeline extends StatefulWidget {
   List<TimelineSection> sections;
@@ -16,6 +16,7 @@ class _TimelineState extends State<Timeline> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: 16,
@@ -25,7 +26,11 @@ class _TimelineState extends State<Timeline> {
           child: TimelineSectionSelector(
             selectedSectionIndex: selectedSectionIndex,
              titles: widget.sections.map((section) => section.title).toList(), 
-             onSectionSelected: (index)=>{}),
+             onSectionSelected: (index){
+              setState(() {
+                selectedSectionIndex = index;
+              });
+             }),
         ),
         Expanded(
           child: Stack(
@@ -40,6 +45,7 @@ class _TimelineState extends State<Timeline> {
               )),
               SingleChildScrollView(
                 child: Column(
+                  key: ValueKey(widget.sections[selectedSectionIndex].title),
                   spacing: 32,
                   children: [
                     ...widget.sections[selectedSectionIndex].items.map((timelineItem) => _TimelineItem(child: timelineItem)).toList(),
@@ -52,7 +58,6 @@ class _TimelineState extends State<Timeline> {
         )
       ],
     );
-  
   }
 }
 
@@ -83,7 +88,7 @@ class _TimelineItem extends StatelessWidget{
             height: 20,
           ),
         ),
-        child
+        Expanded(child: child)
       ],
     );
   

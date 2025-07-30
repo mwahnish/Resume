@@ -2,8 +2,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:wahnish_resume/timeline/section%20selection/fade_clip.dart';
-import 'package:wahnish_resume/timeline/section%20selection/selection_segment.dart';
+import 'package:wahnish_resume/desktop/timeline/section%20selection/fade_clip.dart';
+import 'package:wahnish_resume/desktop/timeline/section%20selection/falloff.dart';
+import 'package:wahnish_resume/desktop/timeline/section%20selection/selection_segment.dart';
 
 const int maxInt = -1 >>> 1;
 
@@ -13,10 +14,13 @@ class AnimatedSegmentRow extends StatefulWidget{
   /// The row will slide to this index
   final int selectedIndex;
 
+  final void Function(int index)? onSegmentSelected;
+
   AnimatedSegmentRow({
     super.key,
     required this.titles,
     required this.selectedIndex,
+    this.onSegmentSelected,
   });
 
   @override
@@ -29,7 +33,6 @@ class AnimatedSegmentRowState extends State<AnimatedSegmentRow> with TickerProvi
   int selectedIndex = 0;
 
   List<String> titleDisplayOrder = [];
-  Offset startScreenPosition = Offset.zero;
 
   late AnimationController slideAnimationController = AnimationController(
     duration: const Duration(milliseconds: 300),
@@ -40,6 +43,8 @@ class AnimatedSegmentRowState extends State<AnimatedSegmentRow> with TickerProvi
     parent: slideAnimationController,
     curve: Curves.easeInOut,
   );
+
+  double? firstItemWidth;
 
   @override
   void initState() {
@@ -53,8 +58,6 @@ class AnimatedSegmentRowState extends State<AnimatedSegmentRow> with TickerProvi
     if (selectedIndex == 0) return;
 
     var selectedTitle = titleDisplayOrder[selectedIndex];
-    print("Selected title: $selectedTitle");
-    print("It's index: $selectedIndex");
 
     while (titleDisplayOrder[0] != selectedTitle) {
       var removed = titleDisplayOrder.removeAt(0);
@@ -80,10 +83,12 @@ class AnimatedSegmentRowState extends State<AnimatedSegmentRow> with TickerProvi
       targetSlidePosition -= segmentWidths[i];
     }
 
-    Color selectedColor = Theme.of(context).colorScheme.onSurface;
-    Color unselectedColor = Theme.of(context).colorScheme.primary.withAlpha( 0);
 
-    var fadeDistance = getRowWidth(); 
+    var rowWidth = getRowWidth(); 
+    if (rowWidth == 0){
+      // then we haven't received the widths yet. Going to give it a default value just so we don't divide by zero later
+      rowWidth = 1.0;
+    }
 
 
 
@@ -95,20 +100,12 @@ class AnimatedSegmentRowState extends State<AnimatedSegmentRow> with TickerProvi
         SelectionSegment(
           key: ValueKey(Random().nextInt(maxInt)), // Using a random key to force rebuilds when the list changes. This will ensure the color changes smoothly
           title: titleDisplayOrder[i],
-          selectedColor: selectedColor,
-          unselectedColor: unselectedColor,
-          fadeDistance: fadeDistance,
-          onReceivedPosition: (position) {
-            if (i == 0 && startScreenPosition != position) {
-              setState(() {
-                startScreenPosition = position;
-              });
-            }
-          },
-          startScreenPosition: startScreenPosition,
+         
           onTap: () {
+            widget.onSegmentSelected?.call(widget.titles.indexOf(titleDisplayOrder[i]));
             setState(() {
               selectedIndex = i;
+              firstItemWidth = segmentWidths[selectedIndex];
               slideAnimationController.forward(from: 0.0).then(
                 (_) {
                   setState(() {
@@ -120,6 +117,13 @@ class AnimatedSegmentRowState extends State<AnimatedSegmentRow> with TickerProvi
             });
           },
           onReceivedWidth: (width) {
+
+            if (firstItemWidth == null) {
+              setState(() {
+                firstItemWidth = width;
+              });
+            }
+
             if (segmentWidths[onReceivedWidthIndex] != width) {
               // Only update the width if it hasn't been set yet
               setState(() {
@@ -139,53 +143,45 @@ class AnimatedSegmentRowState extends State<AnimatedSegmentRow> with TickerProvi
         SelectionSegment(
           key: ValueKey(Random().nextInt(maxInt)), // Using a random key to force rebuilds when the list changes. This will ensure the color changes smoothly
           title: titleDisplayOrder[i],
-          selectedColor: selectedColor,
-          fadeDistance: fadeDistance,
-          unselectedColor: unselectedColor,
-          startScreenPosition: startScreenPosition,
-          onReceivedPosition: (position) {
-            
-          },
-          onTap: () {
-            
-          },
-          onReceivedWidth: (width) {
-            
-          },
+          
         )
       );
     }
 
     
 
-    return FadeClip(
+    return Falloff(
+      rightStopPosition: (firstItemWidth != null ? firstItemWidth! : 0) / rowWidth,
       fadeColor: Theme.of(context).colorScheme.surface,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 16, right: 2),
-        child: AnimatedBuilder(
-          animation: slideAnimationController,
-          builder: (context, _) {
-            return Transform.translate(
-              offset: Offset(targetSlidePosition * slideAnimation.value, 0),
-              child: Stack(
-                children: [
-                  Row(
-                    children: [
-                      ...segments,
-                    ],
-                  ),
-                  FractionalTranslation(
-                    translation: Offset(1, 0),
-                    child: Row(
+      child: FadeClip(
+        fadeColor: Theme.of(context).colorScheme.surface,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 16, right: 2),
+          child: AnimatedBuilder(
+            animation: slideAnimationController,
+            builder: (context, _) {
+              return Transform.translate(
+                offset: Offset(targetSlidePosition * slideAnimation.value, 0),
+                child: Stack(
+                  children: [
+                    Row(
                       children: [
-                        ...dummySegments,
+                        ...segments,
                       ],
                     ),
-                  ),
-                ],
-              ),
-            );
-          }
+                    FractionalTranslation(
+                      translation: Offset(1, 0),
+                      child: Row(
+                        children: [
+                          ...dummySegments,
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }
+          ),
         ),
       ),
     );

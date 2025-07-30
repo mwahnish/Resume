@@ -1,28 +1,21 @@
 
+
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
 class SelectionSegment extends StatefulWidget {
   final String title;
-  final void Function() onTap;
-  void Function(double width) onReceivedWidth;
-  void Function(Offset position) onReceivedPosition;
-  Color selectedColor;
-  Color unselectedColor;
-  Offset startScreenPosition;
-  double fadeDistance;
-
+  final void Function()? onTap;
+  void Function(double width)? onReceivedWidth;
+  void Function(Offset position)? onReceivedPosition;
+  
   SelectionSegment({
     super.key, 
     required this.title,
-    required this.onTap,
-    required this.onReceivedWidth,
-    required this.onReceivedPosition,
-    required this.selectedColor,
-    required this.unselectedColor,
-    required this.startScreenPosition,
-    required this.fadeDistance,
+    this.onTap,
+    this.onReceivedWidth,
+    this.onReceivedPosition
   });
 
   @override
@@ -42,15 +35,8 @@ class SelectionSegmentState extends State<SelectionSegment> {
         final RenderBox renderBox = _key.currentContext!.findRenderObject() as RenderBox;
         var size = renderBox.size;
         var position = renderBox.localToGlobal(Offset.zero);
-        widget.onReceivedWidth(size.width);
-        widget.onReceivedPosition(position);
-
-        var newDistanceFromLeft = position.dx - widget.startScreenPosition.dx;
-        if (newDistanceFromLeft != distanceFromLeft) {
-          setState(() {
-            distanceFromLeft = newDistanceFromLeft;
-          });
-        }
+        widget.onReceivedWidth?.call(size.width);
+        widget.onReceivedPosition?.call(position);
       }
     });
 
@@ -63,7 +49,6 @@ class SelectionSegmentState extends State<SelectionSegment> {
           widget.title,
           style: Theme.of(context).textTheme.headlineMedium!.copyWith(
             fontWeight: FontWeight.bold,
-            color: Color.lerp(widget.selectedColor, widget.unselectedColor, distanceFromLeft / widget.fadeDistance),
           ),
         ),
       ),

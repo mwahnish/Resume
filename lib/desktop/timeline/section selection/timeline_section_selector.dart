@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:wahnish_resume/timeline/section%20selection/animated_segment_row.dart';
-import 'package:wahnish_resume/timeline/section%20selection/selection_segment.dart';
+import 'package:wahnish_resume/desktop/timeline/section%20selection/animated_segment_row.dart';
+import 'package:wahnish_resume/desktop/timeline/section%20selection/selection_segment.dart';
 
 class TimelineSectionSelector extends StatefulWidget {
   final int selectedSectionIndex;
   final List<String> titles;
-  final void Function(String) onSectionSelected;
+  final void Function(int) onSectionSelected;
 
   const TimelineSectionSelector({
     super.key,
@@ -39,12 +39,9 @@ class _TimelineSectionSelectorState extends State<TimelineSectionSelector> with 
           children: [
             AnimatedSegmentRow(
               titles: widget.titles, 
-              selectedIndex: 0)
-            // _drawTitles(context, widget.selectedSectionIndex),
-            // FractionalTranslation(
-            //   translation: const Offset(1, 0),
-            //   child: _drawTitles(context, widget.selectedSectionIndex)
-            // ),
+              selectedIndex: 0,
+              onSegmentSelected: widget.onSectionSelected
+            )
           ],
         ),
       ],
