@@ -13,6 +13,7 @@ class Timeline extends StatefulWidget {
 class _TimelineState extends State<Timeline> {
   int selectedSectionIndex = 0;
 
+
   @override
   Widget build(BuildContext context) {
     return Column(

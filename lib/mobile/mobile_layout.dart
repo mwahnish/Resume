@@ -5,6 +5,7 @@ import 'package:wahnish_resume/common/skill_widget.dart';
 import 'package:wahnish_resume/content/content.dart';
 import 'package:wahnish_resume/desktop/timeline/section%20selection/animated_segment_row.dart';
 import 'package:wahnish_resume/mobile/about.dart';
+import 'package:wahnish_resume/mobile/stick_to_top.dart';
 
 class MobileLayout extends StatefulWidget {
   final Content content;
@@ -16,6 +17,7 @@ class MobileLayout extends StatefulWidget {
 }
 
 class _MobileLayoutState extends State<MobileLayout> {
+  ScrollController scrollController = ScrollController();
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class _MobileLayoutState extends State<MobileLayout> {
       ),
       home: Scaffold(
         body: SingleChildScrollView(
+          controller: scrollController,
           child: Center(
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 500),
@@ -34,19 +37,22 @@ class _MobileLayoutState extends State<MobileLayout> {
 
                 children: [
                   About(content: widget.content),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: IntrinsicWidth(
-                      child: AnimatedSegmentRow(
-                        titles: ["Experience", "Projects", "Skills"],
-                        selectedIndex: selectedIndex,
-                        onSegmentSelected: (index) {
-                          setState(() {
-                            selectedIndex = index;
-                          });
-                        },
-                      ),
-                    )
+                  StickToTop(
+                    scrollController: scrollController,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: IntrinsicWidth(
+                        child: AnimatedSegmentRow(
+                          titles: ["Experience", "Projects", "Skills"],
+                          selectedIndex: selectedIndex,
+                          onSegmentSelected: (index) {
+                            setState(() {
+                              selectedIndex = index;
+                            });
+                          },
+                        ),
+                      )
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
