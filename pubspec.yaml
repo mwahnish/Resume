@@ -63,6 +63,7 @@ flutter:
   assets:
     - assets/mark_wahnish.jpg
     - assets/thINK.png
+    - assets/layers.webp
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

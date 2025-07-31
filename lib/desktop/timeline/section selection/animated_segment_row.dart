@@ -155,6 +155,7 @@ class AnimatedSegmentRowState extends State<AnimatedSegmentRow> with TickerProvi
       fadeColor: Theme.of(context).colorScheme.surface,
       child: FadeClip(
         fadeColor: Theme.of(context).colorScheme.surface,
+        rightStopPosition: .98,
         child: Padding(
           padding: const EdgeInsets.only(left: 16, right: 2),
           child: AnimatedBuilder(

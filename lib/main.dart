@@ -50,16 +50,66 @@ class MyApp extends StatelessWidget {
           "Extensive work in fields not applied to games, including DevOps processes, tools, and pipelines, automated testing, application architecture consulting, and robotics"
         ],
       ),
-        Experience(
+      Experience(
         companyName: "1st Try Studios",
         jobTitle: "Programmer, co-founder",
         duration: "2016 - 2018",
         descriptions: [
-          "Responsible for gameplay logic, character code, and some design work for ThInk, a game for iOS and Android releasing in April 2018r",
+          "Responsible for gameplay logic, character code, and some design work for ThInk, a game for iOS and Android released in April 2018",
+        ],
+      ),
+      Experience(
+        companyName: "Georgia Institute of Technology",
+        jobTitle: "Online Master of Science in Computer Science",
+        duration: "2016 - 2019",
+        descriptions: [
+          
+        ],
+      ),
+      Experience(
+        companyName: "Kettering University",
+        jobTitle: "Bachelor of Science in Mechanical Engineering, minor in Computer Science",
+        duration: "2010 - 2014",
+        descriptions: [
+          
         ],
       )
     ],
     projects: [
+      Project.withTextOnly(
+        name: "Un-released Virtual Tabletop System",
+        description: "A virtual tabletop system for playing Dungeons and Dragons online. The system allows Game Masters to create characters, locations, and maps " 
+        "and then run those games for players over networked multiplayer. The VTT's 2D interfaces are built with Flutter, and Unity is embedded in the Flutter app "
+        "to enable 3D graphics. The application is backed by Supabase, and the multiplayer system is enabled by a custom library built on top of Supabase's real-time capabilities. "
+        "A custom library bridges the gap between Flutter and Unity, making Unity operate as a graphics library controlled from Flutter.",
+        roles: "Sole developer, designer, artist",
+        keySkills: "Flutter, Unity, C#, Supabase, 3D modeling, texturing, database design"
+      ),
+      Project.withTextOnly(
+        name: "Multiplayer Server and Client", 
+        description: "Developed a custom multiplayer server and client library for use in a multiplayer training system for a client. I was responsible for the entire stack, "
+        "including the server, client, and communication protocols. This multiplayer system was designed to scale indefinitely, and included voice chat, positional audio, "
+        "networked physics, and user interfaces for managing games and players. A custom Unity asset was developed to quickly add multiplayer capabilities to any Unity project.", 
+        roles: "Sole programmer, architect, operations manager, and designer", 
+        keySkills: "Networking, multiplayer system design, microservices, C#, Unity, WebGL, VR, Vue and Flutter, Kuberetes, Azure, Docker, REST, MySQL, Redis"
+      ),
+      Project.withTextOnly(
+        name: "Various Virtual Training Projects", 
+        description: "Developed several virtual training projects for clients, focusing on immersive experiences and effective learning outcomes. These projects range from VR "
+        "experiences to phone applications, some multiplayer and some single-player, all developed in Unity.", 
+        roles: "Programmer, designer",
+        keySkills: "Unity game development, VR, multiplayer systems, C#, 3D modeling, texturing, game design, UIs, mobile development",
+      ),
+      Project.withImage(
+        name: 'Layers', 
+        description: "A Unity Asset Store package that provides a visual, graph-based system for creating dynamic music systems and sound effects.", 
+        roles: "Creator, sole developer",
+        keySkills: "Editor tool development, C# programming, Unity API, audio programming", 
+        image: "assets/layers.webp",
+        links: [
+          Link(title: "Unity Asset Store", url: "https://assetstore.unity.com/packages/tools/audio/layers-adaptive-audio-system-196745"),
+        ]
+      ),
       Project.withVideo(
         name: "Decommissioned",
         description: "VR space station exploration tech demo",
