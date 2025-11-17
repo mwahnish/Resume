@@ -228,6 +228,10 @@ class MyApp extends StatelessWidget {
         serviceName: "Expert advisement and consulting", 
         description: "Providing expert advice and consulting services in software development, Unity, and backend systems, helping teams improve their development processes, architecture, and code quality. Available for one-off consultations or ongoing advisory roles."
       ),
+      Service(
+        serviceName: "Containerization and DevOps", 
+        description: "Helping teams containerize applications using Docker, and set up DevOps pipelines using tools like Kubernetes, Netlify, and others."
+      ),
     ]
   );
 
