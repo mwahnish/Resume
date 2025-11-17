@@ -5,14 +5,7 @@ import 'package:wahnish_resume/content/experience.dart';
 import 'package:wahnish_resume/content/link.dart';
 import 'package:wahnish_resume/content/project.dart';
 import 'package:wahnish_resume/content/skill.dart';
-import 'package:wahnish_resume/desktop/about.dart';
-import 'package:wahnish_resume/common/experience_widget.dart';
-import 'package:wahnish_resume/common/link_item.dart';
-import 'package:wahnish_resume/common/project_widget.dart';
-import 'package:wahnish_resume/common/skill_widget.dart';
 import 'package:wahnish_resume/desktop/desktop_layout.dart';
-import 'package:wahnish_resume/desktop/split_layout.dart';
-import 'package:wahnish_resume/desktop/timeline/timeline.dart';
 import 'package:wahnish_resume/mobile/mobile_layout.dart';
 
 void main() {
@@ -28,7 +21,7 @@ class MyApp extends StatelessWidget {
     location: "Port St. Lucie, FL",
     email: "mark@abxygames.com",
     phone: "Available upon request",
-    about: "I am a Unity programmer focused on creating highly engaging, unique, and performant experiences, specializing in VR. I have a wide range of knowledge and skills, from game programming and design to 3D modeling of assets, texturing workflows, editor tool development, and even mechanical design and engineering. I'm currently open for freelance and consulting work! If you'd like to work together, drop me a line!",
+    about: "I am a Unity programmer focused on creating highly engaging, unique, and performant experiences. I have a wide range of knowledge and skills, from game programming and design to 3D modeling of assets, texturing workflows, editor tool development, and even mechanical design and engineering. I'm currently open for freelance and consulting work! If you'd like to work together, drop me a line!",
     experiences: [
       Experience(
         companyName: "ABXY Games",
@@ -77,13 +70,17 @@ class MyApp extends StatelessWidget {
     ],
     projects: [
       Project.withTextOnly(
-        name: "Un-released Virtual Tabletop System",
+        name: "Firelight VTT (Unreleased)",
         description: "A virtual tabletop system for playing Dungeons and Dragons online. The system allows Game Masters to create characters, locations, and maps " 
         "and then run those games for players over networked multiplayer. The VTT's 2D interfaces are built with Flutter, and Unity is embedded in the Flutter app "
         "to enable 3D graphics. The application is backed by Supabase, and the multiplayer system is enabled by a custom library built on top of Supabase's real-time capabilities. "
-        "A custom library bridges the gap between Flutter and Unity, making Unity operate as a graphics library controlled from Flutter.",
+        "A custom library bridges the gap between Flutter and Unity, making Unity operate as a graphics library controlled from Flutter. Firelight is currently 1 year into development, "
+        "and is expected to enter alpha in early 2026. Demos enshots available upon request.",
         roles: "Sole developer, designer, artist",
-        keySkills: "Flutter, Unity, C#, Supabase, 3D modeling, texturing, database design"
+        keySkills: "Flutter, Unity, C#, Supabase, 3D modeling, texturing, database design",
+        links: [
+          Link(title: "Firelight VTT Website", url: "https://firelightvtt.com"),
+        ]
       ),
       Project.withTextOnly(
         name: "Multiplayer Server and Client", 
@@ -128,7 +125,28 @@ class MyApp extends StatelessWidget {
         ],
       ),
     ],
-    skills: [
+    skills: 
+    [
+      Skill(
+        skillName: "Flutter / Dart / Jaspr",
+        duration: "2 years experience",
+        descriptions: [
+          "Proficient with building cross-platform applications for mobile, desktop, and web",
+          "Skilled at creating responsive and adaptive user interfaces using Flutter's widget system",
+          "Experienced in state management using Mobx",
+          "Familiar with backend integration using RESTful APIs and Supabase"
+        ],
+      ),
+      Skill(
+        skillName: "Supabase",
+        duration: "1 years experience",
+        descriptions: [
+          "Experienced in building backend services using Supabase's suite of tools",
+          "Proficient with database design and management using Supabase's PostgreSQL database",
+          "Knowledgeable in implementing PostgreSQL functions and triggers for custom backend logic",
+          "Familiar with Supabase's authentication, real-time capabilities, and RLS policies"
+        ],
+      ),
       Skill(
         skillName: "Unity",
         duration: "14 years experience",
@@ -166,6 +184,13 @@ class MyApp extends StatelessWidget {
           "Extensive experience in hard-surface modeling for games",
           "Proficient with UV unwrapping tools and techniques",
           "Experienced with various Blender workflows"
+        ],
+      ),
+      Skill(
+        skillName: "Affinity Designer / Affinity Photo / Affinity 3",
+        duration: "18 years experience",
+        descriptions: [
+          "Experienced in using the Affinity Suite for games, including development of UI elements, level decoration, and effects",
         ],
       ),
       Skill(

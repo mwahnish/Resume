@@ -2,11 +2,11 @@
 import 'package:flutter/material.dart';
 
 class PageItem extends StatelessWidget{
-  String title;
-  String content;
-  TextAlign textAlign;
+  final String title;
+  final String content;
+  final TextAlign textAlign;
 
-  PageItem({super.key, required this.title, required this.content, this.textAlign = TextAlign.left});
+  const PageItem({super.key, required this.title, required this.content, this.textAlign = TextAlign.left});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wahnish_resume/content/content.dart';
 import 'package:wahnish_resume/content/experience.dart';
 
 class ExperienceWidget extends StatelessWidget {

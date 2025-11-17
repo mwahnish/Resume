@@ -5,11 +5,11 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:wahnish_resume/content/link.dart';
 
 class LinkItem extends StatelessWidget{
-  String title;
-  TextAlign textAlign;
-  List<Link> links;
+  final String title;
+  final TextAlign textAlign;
+  final List<Link> links;
 
-  LinkItem({super.key, required this.title, this.textAlign = TextAlign.left, this.links = const []});
+  const LinkItem({super.key, required this.title, this.textAlign = TextAlign.left, this.links = const []});
 
   @override
   Widget build(BuildContext context) {
