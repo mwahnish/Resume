@@ -76,7 +76,7 @@ class MyApp extends StatelessWidget {
         "and then run those games for players over networked multiplayer. The VTT's 2D interfaces are built with Flutter, and Unity is embedded in the Flutter app "
         "to enable 3D graphics. The application is backed by Supabase, and the multiplayer system is enabled by a custom library built on top of Supabase's real-time capabilities. "
         "A custom library bridges the gap between Flutter and Unity, making Unity operate as a graphics library controlled from Flutter. Firelight is currently 1 year into development, "
-        "and is expected to enter alpha in early 2026. Demos enshots available upon request.",
+        "and is expected to enter alpha in early 2026. Demos and screenshots available upon request.",
         roles: "Sole developer, designer, artist",
         keySkills: "Flutter, Unity, C#, Supabase, 3D modeling, texturing, database design",
         links: [
