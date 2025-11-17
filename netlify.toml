@@ -6,9 +6,6 @@
   export PATH="$PATH:/opt/buildhome/flutter/bin" &&
   ls /opt/buildhome/ &&
   flutter doctor &&
-  dart pub global activate onepub &&
-  export PATH="$PATH:$HOME/.pub-cache/bin" &&
-  onepub import&&
   flutter build web
   """
 [build.environment]
