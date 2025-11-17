@@ -92,6 +92,17 @@ class MyApp extends StatelessWidget {
         keySkills: "Networking, multiplayer system design, microservices, C#, Unity, WebGL, VR, Vue and Flutter, Kuberetes, Azure, Docker, REST, MySQL, Redis"
       ),
       Project.withTextOnly(
+        name: "Mark Wahnish portfolio website", 
+        description: "This website was built using Flutter, version controlled with Git, and hosted on Netlify. The website is fully responsive, and adapts to different screen sizes and orientations.", 
+        roles: "Sole developer, designer, and artist",
+        keySkills: "Flutter, Dart, Git, Netlify, responsive design",
+        links: [
+          Link(title: "Website", url: "https://markwahnish.com"),
+          Link(title: "GitHub", url: "https://github.com/mwahnish/Resume"),
+
+        ]
+      ),
+      Project.withTextOnly(
         name: "Various Virtual Training Projects", 
         description: "Developed several virtual training projects for clients, focusing on immersive experiences and effective learning outcomes. These projects range from VR "
         "experiences to phone applications, some multiplayer and some single-player, all developed in Unity.", 
