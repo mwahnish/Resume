@@ -5,9 +5,9 @@ import 'package:wahnish_resume/content/project.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class ProjectWidget extends StatefulWidget{
-  Project project;
+  final Project project;
 
-  ProjectWidget({
+  const ProjectWidget({
     super.key,
     required this.project,
   });

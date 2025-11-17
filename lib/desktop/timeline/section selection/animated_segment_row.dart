@@ -16,7 +16,7 @@ class AnimatedSegmentRow extends StatefulWidget{
 
   final void Function(int index)? onSegmentSelected;
 
-  AnimatedSegmentRow({
+  const AnimatedSegmentRow({
     super.key,
     required this.titles,
     required this.selectedIndex,
@@ -138,7 +138,6 @@ class AnimatedSegmentRowState extends State<AnimatedSegmentRow> with TickerProvi
     // making dummy segments for the sliding animation
     List<SelectionSegment> dummySegments = [];
     for (int i = 0; i < titleDisplayOrder.length; i++) {
-      var onReceivedWidthIndex = i; // caching the index for later
       dummySegments.add(
         SelectionSegment(
           key: ValueKey(Random().nextInt(maxInt)), // Using a random key to force rebuilds when the list changes. This will ensure the color changes smoothly

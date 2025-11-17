@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wahnish_resume/desktop/timeline/section%20selection/animated_segment_row.dart';
-import 'package:wahnish_resume/desktop/timeline/section%20selection/selection_segment.dart';
 
 class TimelineSectionSelector extends StatefulWidget {
   final int selectedSectionIndex;
@@ -20,10 +19,7 @@ class TimelineSectionSelector extends StatefulWidget {
 
 class _TimelineSectionSelectorState extends State<TimelineSectionSelector> with TickerProviderStateMixin{
 
-  late AnimationController _slideController = AnimationController(
-    duration: const Duration(milliseconds: 300),
-    vsync: this,
-  );
+
 
   @override
   Widget build(BuildContext context) {

@@ -9,9 +9,9 @@ import 'package:wahnish_resume/desktop/split_layout.dart';
 import 'package:wahnish_resume/desktop/timeline/timeline.dart';
 
 class DesktopLayout extends StatelessWidget{
-  Content content;
+  final Content content;
 
-  DesktopLayout({super.key, required this.content});
+  const DesktopLayout({super.key, required this.content});
 
   @override
   Widget build(BuildContext context) {

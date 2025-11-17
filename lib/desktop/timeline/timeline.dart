@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:wahnish_resume/desktop/timeline/section%20selection/timeline_section_selector.dart';
 
 class Timeline extends StatefulWidget {
-  List<TimelineSection> sections;
+  final List<TimelineSection> sections;
 
-  Timeline({super.key, required this.sections});
+  const Timeline({super.key, required this.sections});
 
   @override
   State<Timeline> createState() => _TimelineState();

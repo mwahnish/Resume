@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class SplitLayout extends StatelessWidget {
-  Widget leftChild;
-  Widget rightChild;
+  final Widget leftChild;
+  final Widget rightChild;
 
-  SplitLayout({super.key, required this.leftChild, required this.rightChild});
+  const SplitLayout({super.key, required this.leftChild, required this.rightChild});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

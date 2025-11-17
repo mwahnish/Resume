@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:wahnish_resume/content/skill.dart';
 
 class SkillWidget extends StatelessWidget{
-  Skill skill;
+  final Skill skill;
 
-  SkillWidget({
+  const SkillWidget({
     super.key,
     required this.skill,
   });
@@ -12,8 +12,6 @@ class SkillWidget extends StatelessWidget{
   
   @override
   Widget build(BuildContext context) {
-
-    final double maxWidth = 450;
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,

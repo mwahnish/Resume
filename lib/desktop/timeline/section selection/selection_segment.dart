@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 class SelectionSegment extends StatefulWidget {
   final String title;
   final void Function()? onTap;
-  void Function(double width)? onReceivedWidth;
-  void Function(Offset position)? onReceivedPosition;
+  final void Function(double width)? onReceivedWidth;
+  final void Function(Offset position)? onReceivedPosition;
   
-  SelectionSegment({
+  const SelectionSegment({
     super.key, 
     required this.title,
     this.onTap,
