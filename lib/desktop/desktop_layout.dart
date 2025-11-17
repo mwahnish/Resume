@@ -37,6 +37,10 @@ class DesktopLayout extends StatelessWidget{
             TimelineSection(
               title: "Skills", 
               items: content.skills.map((skill) => SkillWidget(skill: skill)).toList()
+            ),
+            TimelineSection(
+              title: "Services", 
+              items: []
             )
           ]
         )

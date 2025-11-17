@@ -1,0 +1,15 @@
+[build]
+  publish = "build/web"
+  command = """
+  curl -fsSL https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.35.6-stable.tar.xz -o flutter.tar.xz &&
+  tar -xf flutter.tar.xz -C /opt/buildhome &&
+  export PATH="$PATH:/opt/buildhome/flutter/bin" &&
+  ls /opt/buildhome/ &&
+  flutter doctor &&
+  dart pub global activate onepub &&
+  export PATH="$PATH:$HOME/.pub-cache/bin" &&
+  onepub import&&
+  flutter build web
+  """
+[build.environment]
+  NODE_VERSION = "18"

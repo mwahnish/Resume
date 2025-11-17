@@ -31,7 +31,7 @@ class SplitLayout extends StatelessWidget {
               child: Align(
                 alignment: Alignment.topLeft,
                   child: ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 450),
+                    constraints: BoxConstraints(maxWidth: 550),
                     child: rightChild
                   ),
               ),
