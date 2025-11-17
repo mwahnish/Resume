@@ -4,6 +4,7 @@ import 'package:wahnish_resume/content/content.dart';
 import 'package:wahnish_resume/content/experience.dart';
 import 'package:wahnish_resume/content/link.dart';
 import 'package:wahnish_resume/content/project.dart';
+import 'package:wahnish_resume/content/service.dart';
 import 'package:wahnish_resume/content/skill.dart';
 import 'package:wahnish_resume/desktop/desktop_layout.dart';
 import 'package:wahnish_resume/mobile/mobile_layout.dart';
@@ -208,6 +209,24 @@ class MyApp extends StatelessWidget {
           "Working knowledge in using Substance Painter in texturing assets for games",
           "Working knowledge in creating Substance Painter workflows with tools like Unity and Blender"
         ],
+      ),
+    ],
+    services: [
+      Service(
+        serviceName: "Application development", 
+        description: "Development of cross-platform applications using Flutter and Jaspr, for mobile, desktop, and web. Experienced in building responsive UIs, integrating with backends, and deploying to various platforms."
+      ),
+      Service(
+        serviceName: "Unity developement", 
+        description: "Development of games and interactive experiences using Unity. Experienced in gameplay programming, custom editor tool creation, and performance optimization."
+      ),
+      Service(
+        serviceName: "Development of backend services", 
+        description: "Creation of backend server architectures, including custom architectures developed in C# as well as backend services using Supabase. Experienced in database design, API development, and real-time systems."
+      ),
+      Service(
+        serviceName: "Expert advisement and consulting", 
+        description: "Providing expert advice and consulting services in software development, Unity, and backend systems, helping teams improve their development processes, architecture, and code quality. Available for one-off consultations or ongoing advisory roles."
       ),
     ]
   );

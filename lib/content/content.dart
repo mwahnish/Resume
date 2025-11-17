@@ -1,5 +1,6 @@
 import 'package:wahnish_resume/content/experience.dart';
 import 'package:wahnish_resume/content/project.dart';
+import 'package:wahnish_resume/content/service.dart';
 import 'package:wahnish_resume/content/skill.dart';
 
 class Content{
@@ -13,6 +14,7 @@ class Content{
   final List<Experience> experiences;
   final List<Skill> skills;
   final List<Project> projects;
+  final List<Service> services;
 
   const Content({
     required this.name,
@@ -21,8 +23,10 @@ class Content{
     required this.phone,
     required this.about,
     required this.image,
+
     this.experiences = const [],
     this.skills = const [],
     this.projects = const [],
+    this.services = const [],
   });
 }

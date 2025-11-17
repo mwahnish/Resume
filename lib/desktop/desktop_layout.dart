@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:wahnish_resume/common/experience_widget.dart';
 import 'package:wahnish_resume/common/project_widget.dart';
+import 'package:wahnish_resume/common/service_widget.dart';
 import 'package:wahnish_resume/common/skill_widget.dart';
 import 'package:wahnish_resume/content/content.dart';
 import 'package:wahnish_resume/desktop/about.dart';
@@ -40,7 +41,7 @@ class DesktopLayout extends StatelessWidget{
             ),
             TimelineSection(
               title: "Services", 
-              items: []
+              items: content.services.map((service) => ServiceWidget(service: service)).toList()
             )
           ]
         )

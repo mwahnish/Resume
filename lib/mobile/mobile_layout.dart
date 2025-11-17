@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wahnish_resume/common/experience_widget.dart';
 import 'package:wahnish_resume/common/project_widget.dart';
+import 'package:wahnish_resume/common/service_widget.dart';
 import 'package:wahnish_resume/common/skill_widget.dart';
 import 'package:wahnish_resume/content/content.dart';
 import 'package:wahnish_resume/desktop/timeline/section%20selection/animated_segment_row.dart';
@@ -61,11 +62,13 @@ class _MobileLayoutState extends State<MobileLayout> {
                       spacing: 32,
                       children: [
                         if (selectedIndex == 0) ...[
-                          ...widget.content.experiences.map((e) => ExperienceWidget(experience: e)).toList(),
+                          ...widget.content.experiences.map((e) => ExperienceWidget(experience: e)),
                         ] else if (selectedIndex == 1) ...[
-                          ...widget.content.projects.map((p) => ProjectWidget(project: p)).toList(),
+                          ...widget.content.projects.map((p) => ProjectWidget(project: p)),
                         ] else if (selectedIndex == 2) ...[
-                          ...widget.content.skills.map((s) => SkillWidget(skill: s)).toList(),
+                          ...widget.content.skills.map((s) => SkillWidget(skill: s)),
+                        ]else if (selectedIndex == 3) ...[
+                          ...widget.content.services.map((s) => ServiceWidget(service: s)),
                         ]
                       ],
                     ),
