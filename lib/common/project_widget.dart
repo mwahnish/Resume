@@ -59,12 +59,12 @@ class _ProjectWidgetState extends State<ProjectWidget> {
             ),
           ),
     
-        Text(widget.project.name, style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold)),
-        Text(widget.project.description),
+        SelectableText(widget.project.name, style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold)),
+        SelectableText(widget.project.description),
         if (widget.project.links.isNotEmpty)
           LinkItem(title: "Release", links: widget.project.links),
-        PageItem(title: "Roles:", content: widget.project.roles),
-        PageItem(title: "Key Skills:", content: widget.project.keySkills),
+        PageItem(title: "Roles", content: widget.project.roles),
+        PageItem(title: "Key Skills", content: widget.project.keySkills),
       ],
     );
   }

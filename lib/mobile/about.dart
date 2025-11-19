@@ -47,7 +47,7 @@ class About extends StatelessWidget{
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(content.name, style: Theme.of(context).textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.bold), textAlign: TextAlign.left,),
+                  SelectableText(content.name, style: Theme.of(context).textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.bold), textAlign: TextAlign.left,),
                   PageItem(title: "Location", content: content.location, textAlign: TextAlign.left),
                   LinkItem(title: "Email", links: [Link(title: content.email, url: "mailto:${content.email}")], textAlign: TextAlign.left),
                   PageItem(title: "Phone", content: content.phone, textAlign: TextAlign.left),
@@ -78,7 +78,7 @@ class About extends StatelessWidget{
               child: Image.asset(content.image)
             ),
           ),
-          Text(content.name, style: Theme.of(context).textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.bold), textAlign: TextAlign.left,),
+          SelectableText(content.name, style: Theme.of(context).textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.bold), textAlign: TextAlign.left,),
           PageItem(title: "Location", content: content.location, textAlign: TextAlign.left),
           LinkItem(title: "Email", links: [Link(title: content.email, url: "mailto:${content.email}")], textAlign: TextAlign.left),
           PageItem(title: "Phone", content: content.phone, textAlign: TextAlign.left),

@@ -18,8 +18,8 @@ class ServiceWidget extends StatelessWidget{
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: 4,
       children: [
-        Text(service.serviceName, style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold)),
-        Text(service.description, style: Theme.of(context).textTheme.bodyMedium),
+        SelectableText(service.serviceName, style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold)),
+        SelectableText(service.description, style: Theme.of(context).textTheme.bodyMedium),
       ],
     );
   }

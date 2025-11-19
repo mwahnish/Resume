@@ -11,15 +11,16 @@ class PageItem extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
 
-    return RichText(
-      textAlign: textAlign,
-      text: TextSpan(
+    return SelectableText.rich(
+      TextSpan(
         children: [
           TextSpan(text: title, style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.bold)),
           TextSpan(text: ": ", style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.bold)),
           TextSpan(text: content, style: Theme.of(context).textTheme.bodyMedium),
         ]
-      )
+      ),
+
+      textAlign: textAlign,
     );
   }
 }

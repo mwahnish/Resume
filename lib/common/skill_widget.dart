@@ -18,9 +18,9 @@ class SkillWidget extends StatelessWidget{
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: 4,
       children: [
-        Text(skill.skillName, style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold)),
-        Text(skill.duration, style: Theme.of(context).textTheme.titleMedium),
-        ...skill.descriptions.map((desc) => Text("$desc", style: Theme.of(context).textTheme.bodyMedium)),
+        SelectableText(skill.skillName, style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold)),
+        SelectableText(skill.duration, style: Theme.of(context).textTheme.titleMedium),
+        ...skill.descriptions.map((desc) => SelectableText("$desc", style: Theme.of(context).textTheme.bodyMedium)),
       ],
     );
   }

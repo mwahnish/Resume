@@ -29,15 +29,15 @@ class LinkItem extends StatelessWidget{
       linkSpans.add(TextSpan(text: ', ')); // Add space and a comma after each link
     }
 
-    return RichText(
-      textAlign: textAlign,
-      text: TextSpan(
+    return SelectableText.rich(
+      TextSpan(
         children: [
           TextSpan(text: title, style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.bold)),
           TextSpan(text: ": ", style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.bold)),
           ...linkSpans
         ]
-      )
+      ),
+      textAlign: textAlign,
     );
   }
 }

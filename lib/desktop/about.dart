@@ -33,7 +33,7 @@ class About extends StatelessWidget {
               child: Image.asset(content.image)
             ),
           ),
-          Text(content.name, style: Theme.of(context).textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.bold), textAlign: TextAlign.right,),
+          SelectableText(content.name, style: Theme.of(context).textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.bold), textAlign: TextAlign.right,),
           //SizedBox(child: Text(tagline, textAlign: TextAlign.right,), width: maxWidth,),
           PageItem(title: "Location", content: content.location, textAlign: TextAlign.right),
           LinkItem(title: "Email", links: [Link(title: content.email, url: "mailto:${content.email}")], textAlign: TextAlign.right),
