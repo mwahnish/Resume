@@ -86,9 +86,9 @@ class MyApp extends StatelessWidget {
       Project.withTextOnly(
         name: "Falling Letters",
         description: "A daily word puzzle game - swap letters to create words and clear te grid. Developed using Flutter for web, featuring responsive design for both desktop and mobile browsers, state management with Mobx, "
-        " persistence using shared_preferences, and serialization using json_serializable.",
+        " persistence using shared_preferences, and serialization using json_serializable. Deployed using Netlify.",
         roles: "Sole developer, designer, artist",
-        keySkills: "Flutter, Game design, optimization, Mobx, responsive design, json serialization, shared preferences",
+        keySkills: "Flutter, Game design, optimization, Mobx, responsive design, json serialization, shared preferences, Netlify",
         links: [
           Link(title: "Falling Letters", url: "fallingletters.netlify.app"),
         ]
